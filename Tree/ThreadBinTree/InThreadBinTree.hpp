@@ -1,5 +1,5 @@
 #include "ThreadBinNode.hpp"
-#include "BinaryTree.hpp"
+#include "DSAcpp/Tree/BinaryTree/BinaryTree.hpp"
 
 template <typename ElemType>
 class InThreadBinTree

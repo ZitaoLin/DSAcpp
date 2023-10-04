@@ -235,26 +235,24 @@ Status LinkList<ElemType>::SetElem(int i, const ElemType& elem)
 }
 
 
-template<typename ElemType>
-Status LinkList<ElemType>::DeleteElem(int i, ElemType& elem)
+template <typename ElemType>
+Status LinkList<ElemType>::DeleteElem(int i, ElemType &elem)
 {
-	if (i<1 || i>length)
+	if (i < 1 || i > length)
 		return false;
 	else
 	{
-		Node<ElemType>* p = head->next;//p,temp初始化为指向首结点的指针
-		Node<ElemType>* temp = head->next;
-		//若Node<ElemType>* p=head;
-		//则for(int count=1;count<i;count++)
-		for (int count = 2; count < i; count++)
-			p = p->next;	//一直到p指向要删除的结点的前一个结点为止
-		temp = p->next;		//temp 指向要删除的结点
-		elem = temp->data;//temp->data，返回要删除的结点的data
+		Node<ElemType> *p = head; // p初始化为指向头结点的指针
+		Node<ElemType> *temp;
+		for (int count = 1; count < i; count++)
+			p = p->next;   // 一直到p指向要删除的结点的前一个结点为止
+		temp = p->next;	   // temp 指向要删除的结点
+		elem = temp->data; // temp->data，返回要删除的结点的data
 		p->next = temp->next;
-		//temp->next 指针指向跨越一个结点
+		// temp == p->next
 		length--;
 		delete temp;
-		//释放被删除结点的内存空间，必须得用另外的指针temp承接
+		// 释放被删除结点的内存空间，必须得用另外的指针temp承接
 	}
 }
 

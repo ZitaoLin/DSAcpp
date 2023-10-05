@@ -177,7 +177,7 @@ inline Node<ElemType>* LinkList<ElemType>::Locate(int loc) const
 	{
 		if (count + 1 == loc)
 		{
-			return &p;
+			return p;
 			break;
 		}
 		count++;

@@ -1,6 +1,5 @@
-//单向链表结点
+//单向链表结点类
 
-#pragma once
 template<typename ElemType>
 struct Node
 {

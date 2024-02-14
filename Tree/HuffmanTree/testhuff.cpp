@@ -1,5 +1,6 @@
 #include "HuffmanTree.hpp"
 #include <iostream>
+
 int main()
 {
     char ch[4] = {'A', 'B', 'C', 'D'};

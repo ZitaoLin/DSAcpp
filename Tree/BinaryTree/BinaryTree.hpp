@@ -1,6 +1,7 @@
-#include "BinTreeNode.h"
+#include "BinTreeNode.hpp"
 #include <queue>
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 template <typename ElemType>
@@ -27,6 +28,7 @@ private:
     BinTreeNode<ElemType> *Parent(const BinTreeNode<ElemType> *r, const BinTreeNode<ElemType> *p) const;
     // 在以r为根结点的二叉树中求p的双亲
 
+
 public:
     BinaryTree();
     BinaryTree(const ElemType &r_elem);
@@ -44,6 +46,8 @@ public:
     void PostOrderPrint() { PostOrder(root, Print); }
 
     void LevelOrderPrint() { LevelOrder(root, Print); }
+
+    void DisplayShape();
 
     int GetHeight() const { return Height(root); };
     int GetNodeNums() const { return NodeNums(root); };
@@ -239,6 +243,39 @@ template <typename ElemType>
 inline BinaryTree<ElemType>::~BinaryTree()
 {
     Destroy(root);
+}
+
+template <typename ElemType>
+inline void BinaryTree<ElemType>::DisplayShape()
+{
+    if (root == nullptr) {
+        cout << "二叉树为空。" << endl;
+        return;
+    }
+
+    queue<BinTreeNode<ElemType> *> q;
+    q.push(root);
+
+    while (!q.empty()) {
+        int levelSize = q.size(); // 当前层级的元素数量
+
+        for (int i = 0; i < levelSize; ++i) {
+            BinTreeNode<ElemType> *current = q.front();
+            q.pop();
+
+            // 打印当前节点的数据
+            cout << current->data << " ";
+
+            if (current->leftChild != nullptr)
+                q.push(current->leftChild);
+
+            if (current->rightChild != nullptr)
+                q.push(current->rightChild);
+        }
+
+        // 每个层级后换行
+        cout << endl;
+    }
 }
 
 template <typename ElemType>

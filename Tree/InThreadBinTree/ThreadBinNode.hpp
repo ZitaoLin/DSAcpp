@@ -5,7 +5,6 @@ struct ThreadBinNode
     ThreadBinNode<ElemType> *leftChild, *rightChild;
     int leftTag, rightTag;
     // 0 - 孩子指针  1 - 前驱/后继结点
-
     ThreadBinNode();
     ThreadBinNode(const ElemType &d, ThreadBinNode<ElemType> *lc = nullptr, ThreadBinNode<ElemType> *rc = nullptr, int lt = 0, int rt = 0);
 };

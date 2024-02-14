@@ -1,5 +1,5 @@
 #include "ThreadBinNode.hpp"
-#include "DSAcpp/Tree/BinaryTree/BinaryTree.hpp"
+#include "DS/Tree/BinaryTree/BinaryTree.hpp"
 
 template <typename ElemType>
 class InThreadBinTree
@@ -20,7 +20,7 @@ public:
     // 由普通二叉树构造中序线索二叉树
     virtual ~InThreadBinTree();
     ThreadBinNode<ElemType> *GetRoot() const { return root; }
-    
+
     void InThread();                           // 中序线索化二叉树
     ThreadBinNode<ElemType> *GetFirst() const; // 获取二叉树中序序列第一个结点
     ThreadBinNode<ElemType> *GetLast() const;  // 获取二叉树中序序列最后一个结点
@@ -88,7 +88,7 @@ inline void InThreadBinTree<ElemType>::DestroyHelp(ThreadBinNode<ElemType> *&r)
     for (p = GetFirst(); p != nullptr; p = GetNext(p))
     {
         delete p;
-        //p = nullptr;
+        // p = nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ inline InThreadBinTree<ElemType>::InThreadBinTree(const BinaryTree<ElemType> &bt
         this->root = new ThreadBinNode<ElemType>(bt.GetRoot()->data);
         TransformHelp(this->root, bt.GetRoot());
         InThreadHelp(this->root, pre);
-        pre->rightTag=1;
+        pre->rightTag = 1;
     }
 }
 
@@ -115,7 +115,7 @@ template <typename ElemType>
 inline void InThreadBinTree<ElemType>::InThread()
 {
     ThreadBinNode<ElemType> *pre = nullptr;
-    
+
     InThreadHelp(root, pre);
     pre->rightTag = 1;
 }

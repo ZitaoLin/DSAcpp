@@ -1,5 +1,4 @@
-#include<iostream>
-#include"InThreadBinTree.hpp"
+#include "InThreadBinTree.hpp"
 
 int main()
 {
@@ -18,6 +17,16 @@ int main()
 
     InThreadBinTree<char> itbtch(btch);
     itbtch.InOrderVisit(Print);
-    cout<<endl;
+    cout << endl;
+
+    ThreadBinNode<char> *p = itbtch.GetFirst();
+
+    for (int i = 0; i < 2; i++)
+        p = itbtch.GetNext(p);
+    cout << p->data << endl;
+
+    itbtch.InsertLeftChild(p,'H');
+    itbtch.InOrderVisit(Print);
+    cout << endl;
     return 0;
 }

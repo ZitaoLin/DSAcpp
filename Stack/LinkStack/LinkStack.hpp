@@ -1,8 +1,9 @@
-#pragma once
+#if !defined(LINKSTACK_H_)
+#define LINKSTACK_H_
 
 #include"Node.hpp"
-typedef bool Status;
 #include<iostream>
+typedef bool Status;
 using namespace std;
 
 template<typename ElemType>
@@ -14,7 +15,6 @@ protected:
 public:
 	LinkStack();
 	LinkStack(const LinkStack<ElemType>& ls);
-	LinkStack<ElemType>& operator=(const LinkStack<ElemType>& ls);
 	virtual ~LinkStack();
 
 	int GetLength()const;
@@ -133,4 +133,4 @@ inline Status LinkStack<ElemType>::Top(ElemType& elem) const
 	}
 }
 
-
+#endif // LINKSTACK_H_

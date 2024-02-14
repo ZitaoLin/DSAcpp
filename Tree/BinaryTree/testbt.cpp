@@ -14,24 +14,27 @@ int main()
 
     BinaryTree<char> btch0;
     btch0 = btch;
+
+    cout << "前序遍历：";
     btch0.PreOrderPrint();
-    
     cout << endl;
 
-    btch.PreOrderPrint();
+    cout << "中序遍历：";
+    btch0.InOrderPrint();
     cout << endl;
 
-    btch.InOrderPrint();
+    cout << "后序遍历：";
+    btch0.PostOrderPrint();
     cout << endl;
 
-    btch.PostOrderPrint();
+    cout << "层序遍历：";
+    btch0.LevelOrderPrint();
     cout << endl;
 
-    btch.LevelOrderPrint();
-    cout << endl;
+    btch0.DisplayShape();
 
-    cout << "Height of Tree: " << btch.GetHeight() << endl;
-    cout << "Nums of nodes in tree: " << btch.GetNodeNums() << endl;
+    cout << "树的高度: " << btch.GetHeight() << endl;
+    cout << "树的结点数量：: " << btch.GetNodeNums() << endl;
     cout << endl;
 
     return 0;
